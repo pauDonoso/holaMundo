@@ -22,7 +22,7 @@ El precio final de la compra es precio del producto + costo de envío
 
 
 function calculatePrice(producto, precio){
-    let costoEnvio
+    let costoEnvio;
     if(precio > 0 && precio < 2001){
        costoEnvio = 300;
     } else if(precio > 2001 && precio < 4001){
@@ -37,3 +37,15 @@ console.log(`El producto ${producto} cuesta ${precio}. Su costo de envío es de 
 calculatePrice('Macbook', 2500);
 calculatePrice('Celular', 500);
 calculatePrice('Playstation', 4500);
+
+
+// ternario
+const calculatePrice = (name, price) => {
+    let envio = 0;
+    price >= 1 && price <= 2000 ? envio = 300 :
+    price >= 2001 && price <= 4000 ? envio = 500 :
+    price > 4000 ? envio = 700 : null
+    let finalPrice = price + envio;
+    console.log(`El producto ${name} cuesta ${price}. Su costo de envío es de ${envio}. Por lo tanto, el precio final es de ${finalPrice}`)  
+}
+calculatePrice('Mackbook', 2500);
